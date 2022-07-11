@@ -36,7 +36,7 @@ async def BotzHub():
             for bot in bots:
                 print(f"[INFO] checking @{bot}")
                 snt = await user_bot.send_message(bot, "/start")
-                await asyncio.sleep(43200)
+                await asyncio.sleep(10)
 
                 history = await user_bot(GetHistoryRequest(
                     peer=bot,
@@ -65,7 +65,7 @@ async def BotzHub():
             edit_text +=f"\n**Last Checked:** \n`{t} - {day} {month} {year} [IST]`\n\n__Bots status are auto-updated every 2 hours__"
             await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             print(f"Checks since last restart - {c}")
-            print("Sleeping for 12 hours.")
-            await asyncio.sleep(12 * 60 * 60)
+            print("Sleeping for 2 hours.")
+            await asyncio.sleep(2 * 60 * 60)
 
 user_bot.loop.run_until_complete(BotzHub())
